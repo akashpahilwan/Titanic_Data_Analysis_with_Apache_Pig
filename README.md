@@ -59,6 +59,7 @@ Below we can see the datset has been uploaded to the HDFS path mentioned above.<
 Launching Apache Pig shell and Importing data into a Relation in Pig.
 ====================
 
+Make sure your hadoop cluster is running before executing the pig script file.</br>
 Use the below command to launch Apache pig shell.
 ```
 pig
@@ -118,7 +119,7 @@ Below file was created and stored in input folder.
 0,Died
 1,Survived
 ```
-Loading the above file intoa relation named header_col
+Loading the above file into a relation named header_col
 ```
 header_col= load 'titanic_analysis/input/header_col' using PigStorage(',') as (Survived:int,s_str:chararray);
 ```
@@ -217,7 +218,7 @@ dump requirement_2_m2_print;
 Requirement 3:
 ================
 
-This requirement is similar to requirement 2.Instead of counting the number of rows we will be taking average of column age.
+This requirement is similar to requirement 2. Instead of counting the number of rows we will be taking average of column age.
 Below is the whole script for this requirement.
 ```
 --Splitting the data
@@ -260,7 +261,7 @@ Splittin data into two relations of Survived and Dead
 ```
 SPLIT feature_data into total_died IF(Survived==0), total_survived IF(Survived==1);
 ```
-Groups realtions by Pclass
+Groups relations by Pclass
 ```
 died_group = GROUP total_died by Pclass;
 survived_group = GROUP total_survived by Pclass;
@@ -287,7 +288,7 @@ dump requirement_4_print;
 Requirement 5:
 ================
 
-Grouping the data by PClaass
+Grouping the data by PClass
 ```
 group_pclass= group titanic_data by Pclass;
 ```
@@ -306,3 +307,23 @@ Printing the saved result into pig shell.
 requirement_5_print= load '/user/hdoop/titanic_analysis/output/requirement_5.txt' using PigStorage(',');
 dump requirement_5_print;
 ```
+Running Pig Script in Mapreduce Mode:
+=========================
+
+If you donot want to run pig in grunt sheel you can also run it in local mode or Mapreduce mode without going into pig shell.
+
+Below is the command for running pig script in local mode
+
+```
+pig –x local '/home/hdoop/Desktop/Scripts/requirement1.pig'
+-- make sure have changed the file path according to your local system in above line
+```
+
+To run script in Mapreduce Mode
+
+```
+pig –x mapreduce '/home/hdoop/Desktop/Scripts/requirement1.pig'
+-- make sure have changed the file path according to your local system in above line
+```
+
+I have provided all the scripts for all the requirement in scripts folder.
