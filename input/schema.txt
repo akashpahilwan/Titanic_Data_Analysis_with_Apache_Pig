@@ -1,0 +1,11 @@
+Column 1 : PassengerId
+Column 2 : Survived (survived=0 & died=1)
+Column 3 : Pclass
+Column 4 : Sex
+Column 5 : Age
+Column 6 : SibSp
+Column 7 : Parch
+Column 8 : Ticket
+Column 9 : Fare
+Column 10 : Cabin
+Column 11 : Embarked
