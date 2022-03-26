@@ -54,7 +54,7 @@ hadoop fs -mkdir titanic_analysis/input
 hadoop fs -put /home/hdoop/Desktop/data/titanic_data.csv titanic_analysis/input/
 ```
 Below we can see the datset has been uploaded to the HDFS path mentioned above.</br></br>
-![plot](../Titanic_Data_Analysis_with_Apache_Pig/images/input.PNG)</br></br>
+![plot](https://github.com/akashpahilwan/Titanic_Data_Analysis_with_Apache_Pig/tree/master/images)</br></br>
 
 Launching Apache Pig shell and Importing data into a Relation in Pig.
 ====================
